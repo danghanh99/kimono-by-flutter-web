@@ -34,19 +34,31 @@ class SidebarXExampleApp extends StatelessWidget {
               controller: _controller,
               isSmall: isSmallScreen,
             ),
-            body: Row(
+            body: Stack(
               children: [
-                if (!isSmallScreen)
-                  ItemSidebarX(
-                    controller: _controller,
-                    isSmall: isSmallScreen,
-                  ),
-                Expanded(
-                  child: Center(
-                    child: ScreenNav(
-                      controller: _controller,
+                Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/bg2.jpg'),
+                      fit: BoxFit.cover, // Đặt để ảnh bao phủ toàn bộ trang
                     ),
                   ),
+                ),
+                Row(
+                  children: [
+                    if (!isSmallScreen)
+                      ItemSidebarX(
+                        controller: _controller,
+                        isSmall: isSmallScreen,
+                      ),
+                    Expanded(
+                      child: Center(
+                        child: ScreenNav(
+                          controller: _controller,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
