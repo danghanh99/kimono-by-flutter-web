@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kimono_rental_flutter_web/pages/components/plan-item.dart';
+import 'package:kimono_rental_flutter_web/pages/home-page/components/plan-item.dart';
 
 class CarouselWidget extends StatelessWidget {
   final List<String> imageList = List.generate(

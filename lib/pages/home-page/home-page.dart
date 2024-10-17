@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kimono_rental_flutter_web/pages/components/carousel_widget.dart';
-import 'package:kimono_rental_flutter_web/pages/components/plan-item.dart';
+import 'package:kimono_rental_flutter_web/pages/home-page/components/carousel_widget.dart';
+import 'package:kimono_rental_flutter_web/pages/home-page/components/plan-item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
