@@ -146,20 +146,20 @@ class ItemSidebarX extends StatelessWidget {
           },
         ),
         const SidebarXItem(
+          icon: Icons.list,
+          label: 'List plan',
+        ),
+        const SidebarXItem(
           icon: Icons.search,
-          label: 'Search',
+          label: 'Search booking',
         ),
         const SidebarXItem(
-          icon: Icons.people,
-          label: 'People',
+          icon: Icons.more_vert,
+          label: 'Option',
         ),
         const SidebarXItem(
-          icon: Icons.favorite,
-          label: 'Favorites',
-        ),
-        const SidebarXItem(
-          iconWidget: FlutterLogo(size: 20),
-          label: 'Flutter',
+          icon: Icons.question_answer,
+          label: 'Q&A',
         ),
       ],
     );
