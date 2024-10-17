@@ -60,6 +60,37 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'VASARAで人気の',
+                  style: TextStyle(
+                    fontSize: 18, // Kích thước chữ nhỏ hơn một chút
+                    color: Colors.pink, // Màu hồng
+                    fontWeight: FontWeight.bold, // Đậm
+                  ),
+                ),
+                // Dòng chữ "オススメ着物レンタルプラン"
+                Text(
+                  'オススメ着物レンタルプラン',
+                  style: TextStyle(
+                    fontSize: 24, // Kích thước lớn hơn
+                    color: Colors.pink, // Màu hồng
+                    fontWeight: FontWeight.bold, // Đậm
+                  ),
+                ),
+                // Dòng chữ "今のシーズンにオススメのプランです"
+                Text(
+                  '今のシーズンにオススメのプランです',
+                  style: TextStyle(
+                    fontSize: 16, // Kích thước vừa
+                    color: Colors.black, // Màu đen
+                    fontStyle: FontStyle.italic, // Chữ nghiêng
+                  ),
+                ),
+              ],
+            ),
             Container(
               alignment: Alignment.topCenter,
               width: 800,
@@ -93,11 +124,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
