@@ -1,5 +1,20 @@
-# Sử dụng image Flutter base
-FROM cirrusci/flutter:stable
+# Bắt đầu từ một image Ubuntu
+FROM ubuntu:20.04
+
+# Cài đặt các công cụ cần thiết
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    unzip \
+    xz-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Tải và cài đặt Flutter SDK
+RUN git clone https://github.com/flutter/flutter.git /flutter \
+    && /flutter/bin/flutter doctor
+
+# Thiết lập biến môi trường
+ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 # Thiết lập thư mục làm việc
 WORKDIR /app
