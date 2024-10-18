@@ -2,47 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kimono_rental_flutter_web/pages/HomPage/components/carousel_widget.dart';
 import 'package:kimono_rental_flutter_web/pages/HomPage/components/grid_plan_widget.dart';
+import 'package:kimono_rental_flutter_web/pages/ListPlanPage/components/text1.dart';
+import 'package:kimono_rental_flutter_web/shared/components/background_widget.dart';
 
 class ListPlanPage extends StatefulWidget {
-  const ListPlanPage({super.key, required this.title});
-
-  final String title;
+  const ListPlanPage({
+    super.key,
+  });
 
   @override
   State<ListPlanPage> createState() => _ListPlanPageState();
 }
 
 class _ListPlanPageState extends State<ListPlanPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    var screenWidth = screenSize.width; // Chiều rộng màn hình
-    var screenHeight = screenSize.height; // Chiều cao màn hình
-
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/bg2.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          const BackgroundWidget(),
           SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                text1(),
+                const text1(),
                 CarouselWidget(),
                 campionImage(),
                 text2(),
@@ -50,26 +33,6 @@ class _ListPlanPageState extends State<ListPlanPage> {
                 goToPlanButton(),
                 footer(),
               ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget text1() {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            'プラン一覧',
-            style: TextStyle(
-              fontSize: 18, // Kích thước chữ nhỏ hơn một chút
-              color: Colors.pink, // Màu hồng
-              fontWeight: FontWeight.bold, // Đậm
             ),
           ),
         ],

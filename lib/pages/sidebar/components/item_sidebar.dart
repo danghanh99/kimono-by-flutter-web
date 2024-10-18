@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kimono_rental_flutter_web/consts/consts.dart';
+import 'package:kimono_rental_flutter_web/consts/app_colors.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class ItemSidebarX extends StatelessWidget {
@@ -107,18 +107,6 @@ class ItemSidebarX extends StatelessWidget {
           label: 'Q&A',
         ),
       ],
-    );
-  }
-
-  void _showDisabledAlert(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text(
-          'Item disabled for selecting',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-      ),
     );
   }
 }

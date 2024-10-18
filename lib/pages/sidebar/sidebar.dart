@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kimono_rental_flutter_web/consts/consts.dart';
+import 'package:kimono_rental_flutter_web/consts/app_colors.dart';
 import 'package:kimono_rental_flutter_web/pages/SideBar/components/item_sidebar.dart';
 import 'package:kimono_rental_flutter_web/pages/SideBar/components/screen_nav.dart';
 import 'package:sidebarx/sidebarx.dart';

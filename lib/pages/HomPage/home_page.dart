@@ -2,46 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kimono_rental_flutter_web/pages/HomPage/components/carousel_widget.dart';
 import 'package:kimono_rental_flutter_web/pages/HomPage/components/grid_plan_widget.dart';
+import 'package:kimono_rental_flutter_web/shared/components/background_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     var screenWidth = screenSize.width; // Chiều rộng màn hình
-    var screenHeight = screenSize.height; // Chiều cao màn hình
 
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/bg2.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          const BackgroundWidget(),
           SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 largeImage(screenWidth),
                 campionImage(),
                 text1(),
@@ -49,13 +34,7 @@ class _HomePageState extends State<HomePage> {
                 text2(),
                 GridPlanWidget(),
                 goToPlanButton(),
-                const Divider(
-                  color: Colors.white, // Màu của đường kẻ
-                  height: 20, // Khoảng cách từ widget trước và sau Divider
-                  thickness: 3, // Độ dày của đường kẻ
-                  indent: 10, // Khoảng cách bắt đầu từ bên trái
-                  endIndent: 10, // Khoảng cách kết thúc từ bên phải
-                ),
+                dividerWidget(),
                 footer(),
               ],
             ),
@@ -233,6 +212,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget dividerWidget() {
+    return const Divider(
+      color: Colors.white, // Màu của đường kẻ
+      height: 20, // Khoảng cách từ widget trước và sau Divider
+      thickness: 3, // Độ dày của đường kẻ
+      indent: 10, // Khoảng cách bắt đầu từ bên trái
+      endIndent: 10, // Khoảng cách kết thúc từ bên phải
     );
   }
 

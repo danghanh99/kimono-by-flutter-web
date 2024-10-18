@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kimono_rental_flutter_web/pages/FaqPage/faq_page.dart';
 import 'package:kimono_rental_flutter_web/pages/HomPage/home_page.dart';
 import 'package:kimono_rental_flutter_web/pages/ListPlanPage/list_plan_page.dart';
+import 'package:kimono_rental_flutter_web/pages/OptionsPage/options_page.dart';
+import 'package:kimono_rental_flutter_web/pages/SearchBookingPage/search_booking_page.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class ScreenNav extends StatelessWidget {
@@ -19,19 +22,15 @@ class ScreenNav extends StatelessWidget {
       builder: (context, child) {
         switch (controller.selectedIndex) {
           case 0:
-            return const HomePage(title: "home");
+            return const HomePage();
           case 1:
-            return const ListPlanPage(title: "people");
+            return const ListPlanPage();
           case 2:
-            return const HomePage(title: "people");
+            return const SearchBookingPage();
           case 3:
-            return const HomePage(title: "Favorites");
+            return const OptionsPage();
           case 4:
-            return const HomePage(title: "Flutter");
-          case 5:
-            return const HomePage(title: "title");
-          case 6:
-            return const HomePage(title: "title");
+            return const FaqPage();
           default:
             return Text(
               "404 NOT FOUND",
