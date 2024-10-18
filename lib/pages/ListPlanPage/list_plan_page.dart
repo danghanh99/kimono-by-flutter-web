@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kimono_rental_flutter_web/pages/home-page/components/carousel_widget.dart';
-import 'package:kimono_rental_flutter_web/pages/home-page/components/grid_plan_widget.dart';
+import 'package:kimono_rental_flutter_web/pages/HomPage/components/carousel_widget.dart';
+import 'package:kimono_rental_flutter_web/pages/HomPage/components/grid_plan_widget.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+class ListPlanPage extends StatefulWidget {
+  const ListPlanPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ListPlanPage> createState() => _ListPlanPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ListPlanPageState extends State<ListPlanPage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -42,57 +42,17 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                largeImage(screenWidth),
-                campionImage(),
                 text1(),
                 CarouselWidget(),
+                campionImage(),
                 text2(),
                 GridPlanWidget(),
                 goToPlanButton(),
-                const Divider(
-                  color: Colors.white, // Màu của đường kẻ
-                  height: 20, // Khoảng cách từ widget trước và sau Divider
-                  thickness: 3, // Độ dày của đường kẻ
-                  indent: 10, // Khoảng cách bắt đầu từ bên trái
-                  endIndent: 10, // Khoảng cách kết thúc từ bên phải
-                ),
                 footer(),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget largeImage(double screenWidth) {
-    return Container(
-      color: Colors.grey,
-      alignment: Alignment.topCenter,
-      width: screenWidth,
-      height: 350,
-      child: Image.network(
-        'https://assets.airtrfx.com/media-em/aa/638e5cd56fee1_EMHero_1500x500_Tokyo2.png',
-        fit: BoxFit.cover,
-        loadingBuilder: (BuildContext context, Widget child,
-            ImageChunkEvent? loadingProgress) {
-          if (loadingProgress == null) {
-            return child;
-          } else {
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        (loadingProgress.expectedTotalBytes ?? 1)
-                    : null,
-              ),
-            );
-          }
-        },
-        errorBuilder:
-            (BuildContext context, Object error, StackTrace? stackTrace) {
-          return const Text('Failed to load image');
-        },
       ),
     );
   }
@@ -105,29 +65,11 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            'VASARAで人気の',
+            'プラン一覧',
             style: TextStyle(
               fontSize: 18, // Kích thước chữ nhỏ hơn một chút
               color: Colors.pink, // Màu hồng
               fontWeight: FontWeight.bold, // Đậm
-            ),
-          ),
-          // Dòng chữ "オススメ着物レンタルプラン"
-          Text(
-            'オススメ着物レンタルプラン',
-            style: TextStyle(
-              fontSize: 24, // Kích thước lớn hơn
-              color: Colors.pink, // Màu hồng
-              fontWeight: FontWeight.bold, // Đậm
-            ),
-          ),
-          // Dòng chữ "今のシーズンにオススメのプランです"
-          Text(
-            '今のシーズンにオススメのプランです',
-            style: TextStyle(
-              fontSize: 16, // Kích thước vừa
-              color: Colors.black, // Màu đen
-              fontStyle: FontStyle.italic, // Chữ nghiêng
             ),
           ),
         ],
@@ -205,30 +147,27 @@ class _HomePageState extends State<HomePage> {
   Widget goToPlanButton() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.pink[300], // Màu chữ trắng
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+      child: Container(
+        width: 150,
+        alignment: Alignment.center,
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.pink[300], // Màu chữ trắng
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
-        ),
-        child: const SizedBox(
-          width: 160,
-          height: 50,
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween, // Căn giữa
             children: [
               Text(
                 'プラン一覧',
                 style: TextStyle(
-                    color: Colors.white, fontSize: 25), // Chữ màu trắng
+                    color: Colors.white, fontSize: 15), // Chữ màu trắng
               ),
-              Icon(
-                Icons.navigate_next,
-                size: 30,
-              ), // Biểu tượng đi tới trang tiếp theo
+              Icon(Icons.navigate_next), // Biểu tượng đi tới trang tiếp theo
             ],
           ),
         ),
