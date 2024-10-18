@@ -136,8 +136,8 @@ class ItemSidebarX extends StatelessWidget {
       footerDivider: divider,
       headerBuilder: (context, extended) {
         return SizedBox(
-          height: isSmall ? 70 : 200,
-          width: isSmall ? 70 : 200,
+          height: _controller.extended ? 200 : 70,
+          width: _controller.extended ? 200 : 70,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: ClipOval(
@@ -207,19 +207,19 @@ class ScreenNav extends StatelessWidget {
         final pageTitle = _getTitleByIndex(controller.selectedIndex);
         switch (controller.selectedIndex) {
           case 0:
-            return HomePage(title: "home");
+            return const HomePage(title: "home");
           case 1:
-            return HomePage(title: "search");
+            return const HomePage(title: "search");
           case 2:
-            return HomePage(title: "people");
+            return const HomePage(title: "people");
           case 3:
-            return HomePage(title: "Favorites");
+            return const HomePage(title: "Favorites");
           case 4:
-            return HomePage(title: "Flutter");
+            return const HomePage(title: "Flutter");
           case 5:
-            return HomePage(title: "title");
+            return const HomePage(title: "title");
           case 6:
-            return HomePage(title: "title");
+            return const HomePage(title: "title");
           default:
             return Text(
               "dskjsnjfkdsnjkfnsdjkf",
