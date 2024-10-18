@@ -3,16 +3,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kimono_rental_flutter_web/pages/home-page/components/carousel_widget.dart';
 import 'package:kimono_rental_flutter_web/pages/home-page/components/grid_plan_widget.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+class ListPlanPage extends StatefulWidget {
+  const ListPlanPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ListPlanPage> createState() => _ListPlanPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ListPlanPageState extends State<ListPlanPage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -42,10 +42,9 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                largeImage(screenWidth),
-                campionImage(),
                 text1(),
                 CarouselWidget(),
+                campionImage(),
                 text2(),
                 GridPlanWidget(),
                 goToPlanButton(),
@@ -58,38 +57,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget largeImage(double screenWidth) {
-    return Container(
-      color: Colors.grey,
-      alignment: Alignment.topCenter,
-      width: screenWidth,
-      height: 350,
-      child: Image.network(
-        'https://assets.airtrfx.com/media-em/aa/638e5cd56fee1_EMHero_1500x500_Tokyo2.png',
-        fit: BoxFit.cover,
-        loadingBuilder: (BuildContext context, Widget child,
-            ImageChunkEvent? loadingProgress) {
-          if (loadingProgress == null) {
-            return child;
-          } else {
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        (loadingProgress.expectedTotalBytes ?? 1)
-                    : null,
-              ),
-            );
-          }
-        },
-        errorBuilder:
-            (BuildContext context, Object error, StackTrace? stackTrace) {
-          return const Text('Failed to load image');
-        },
-      ),
-    );
-  }
-
   Widget text1() {
     return const Padding(
       padding: EdgeInsets.symmetric(vertical: 10),
@@ -98,29 +65,11 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            'VASARAで人気の',
+            'プラン一覧',
             style: TextStyle(
               fontSize: 18, // Kích thước chữ nhỏ hơn một chút
               color: Colors.pink, // Màu hồng
               fontWeight: FontWeight.bold, // Đậm
-            ),
-          ),
-          // Dòng chữ "オススメ着物レンタルプラン"
-          Text(
-            'オススメ着物レンタルプラン',
-            style: TextStyle(
-              fontSize: 24, // Kích thước lớn hơn
-              color: Colors.pink, // Màu hồng
-              fontWeight: FontWeight.bold, // Đậm
-            ),
-          ),
-          // Dòng chữ "今のシーズンにオススメのプランです"
-          Text(
-            '今のシーズンにオススメのプランです',
-            style: TextStyle(
-              fontSize: 16, // Kích thước vừa
-              color: Colors.black, // Màu đen
-              fontStyle: FontStyle.italic, // Chữ nghiêng
             ),
           ),
         ],
