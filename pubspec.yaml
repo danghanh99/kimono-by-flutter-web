@@ -13,6 +13,7 @@ dependencies:
   sidebarx:
   cupertino_icons:
   carousel_slider:
+  font_awesome_flutter:
 
 dev_dependencies:
   flutter_test:
