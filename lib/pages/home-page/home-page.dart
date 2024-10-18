@@ -49,6 +49,13 @@ class _HomePageState extends State<HomePage> {
                 text2(),
                 GridPlanWidget(),
                 goToPlanButton(),
+                const Divider(
+                  color: Colors.white, // Màu của đường kẻ
+                  height: 20, // Khoảng cách từ widget trước và sau Divider
+                  thickness: 3, // Độ dày của đường kẻ
+                  indent: 10, // Khoảng cách bắt đầu từ bên trái
+                  endIndent: 10, // Khoảng cách kết thúc từ bên phải
+                ),
                 footer(),
               ],
             ),
@@ -198,27 +205,30 @@ class _HomePageState extends State<HomePage> {
   Widget goToPlanButton() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Container(
-        width: 150,
-        alignment: Alignment.center,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.pink[300], // Màu chữ trắng
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.pink[300], // Màu chữ trắng
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
           ),
-          child: const Row(
+        ),
+        child: const SizedBox(
+          width: 160,
+          height: 50,
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween, // Căn giữa
             children: [
               Text(
                 'プラン一覧',
                 style: TextStyle(
-                    color: Colors.white, fontSize: 15), // Chữ màu trắng
+                    color: Colors.white, fontSize: 25), // Chữ màu trắng
               ),
-              Icon(Icons.navigate_next), // Biểu tượng đi tới trang tiếp theo
+              Icon(
+                Icons.navigate_next,
+                size: 30,
+              ), // Biểu tượng đi tới trang tiếp theo
             ],
           ),
         ),
