@@ -14,12 +14,13 @@ dependencies:
   cupertino_icons:
   carousel_slider:
   font_awesome_flutter:
+  dropdown_button2:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: 
 
 flutter:
   uses-material-design: true

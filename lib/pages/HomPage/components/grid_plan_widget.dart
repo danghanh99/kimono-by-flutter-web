@@ -15,7 +15,7 @@ class GridPlanWidget extends StatelessWidget {
     return Padding(
       padding:
           const EdgeInsets.symmetric(vertical: 0), // Bỏ padding ngoài GridView
-      child: SizedBox(
+      child: Container(
         width: 900,
         height: 650,
         // color: Colors.grey,

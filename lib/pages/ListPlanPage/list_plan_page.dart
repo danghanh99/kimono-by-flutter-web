@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kimono_rental_flutter_web/pages/HomPage/components/carousel_widget.dart';
 import 'package:kimono_rental_flutter_web/pages/HomPage/components/grid_plan_widget.dart';
+import 'package:kimono_rental_flutter_web/pages/ListPlanPage/components/custom_pagination.dart';
+import 'package:kimono_rental_flutter_web/pages/ListPlanPage/components/dropdown_button.dart';
+import 'package:kimono_rental_flutter_web/pages/ListPlanPage/components/search_box.dart';
 import 'package:kimono_rental_flutter_web/pages/ListPlanPage/components/text1.dart';
 import 'package:kimono_rental_flutter_web/shared/components/background_widget.dart';
 
@@ -26,17 +29,33 @@ class _ListPlanPageState extends State<ListPlanPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 const text1(),
-                CarouselWidget(),
-                campionImage(),
+                // CarouselWidget(),
                 text2(),
+                CustomDropdownButton(),
                 GridPlanWidget(),
-                goToPlanButton(),
+                Center(
+                  child: PaginationWidget(
+                    totalPages: 5,
+                    onPageChanged: (index) {},
+                  ),
+                ),
+                dividerWidget(),
                 footer(),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget dividerWidget() {
+    return const Divider(
+      color: Colors.white, // Màu của đường kẻ
+      height: 20, // Khoảng cách từ widget trước và sau Divider
+      thickness: 3, // Độ dày của đường kẻ
+      indent: 10, // Khoảng cách bắt đầu từ bên trái
+      endIndent: 10, // Khoảng cách kết thúc từ bên phải
     );
   }
 
@@ -64,76 +83,6 @@ class _ListPlanPageState extends State<ListPlanPage> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget campionImage() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: SizedBox(
-        // color: Colors.grey,
-        width: 600,
-        height: 200,
-        child: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(20), // Bo góc để viền và ảnh đồng bộ
-          child: Image.network(
-            'https://assets.airtrfx.com/media-em/aa/638e5cd56fee1_EMHero_1500x500_Tokyo2.png',
-            fit: BoxFit
-                .cover, // Hoặc sử dụng BoxFit.fitWidth nếu bạn muốn giữ tỷ lệ
-            loadingBuilder: (BuildContext context, Widget child,
-                ImageChunkEvent? loadingProgress) {
-              if (loadingProgress == null) {
-                return child;
-              } else {
-                return Center(
-                  child: CircularProgressIndicator(
-                    value: loadingProgress.expectedTotalBytes != null
-                        ? loadingProgress.cumulativeBytesLoaded /
-                            (loadingProgress.expectedTotalBytes ?? 1)
-                        : null,
-                  ),
-                );
-              }
-            },
-            errorBuilder:
-                (BuildContext context, Object error, StackTrace? stackTrace) {
-              return const Text('Failed to load image');
-            },
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget goToPlanButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Container(
-        width: 150,
-        alignment: Alignment.center,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.pink[300], // Màu chữ trắng
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween, // Căn giữa
-            children: [
-              Text(
-                'プラン一覧',
-                style: TextStyle(
-                    color: Colors.white, fontSize: 15), // Chữ màu trắng
-              ),
-              Icon(Icons.navigate_next), // Biểu tượng đi tới trang tiếp theo
-            ],
-          ),
-        ),
       ),
     );
   }

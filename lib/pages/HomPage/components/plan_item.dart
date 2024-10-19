@@ -71,7 +71,8 @@ class KimonoPlanItem extends StatelessWidget {
                       // Xử lý khi nhấn nút "プランを見る"
                     },
                     style: ElevatedButton.styleFrom(
-                      overlayColor: Colors.pink, // Màu nền cho nút
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.pink[300], // Màu chữ trắng
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

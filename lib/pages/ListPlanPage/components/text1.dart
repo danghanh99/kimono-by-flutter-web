@@ -14,7 +14,7 @@ class text1 extends StatelessWidget {
           Text(
             'プラン一覧',
             style: TextStyle(
-              fontSize: 18, // Kích thước chữ nhỏ hơn một chút
+              fontSize: 30, // Kích thước chữ nhỏ hơn một chút
               color: Colors.pink, // Màu hồng
               fontWeight: FontWeight.bold, // Đậm
             ),
